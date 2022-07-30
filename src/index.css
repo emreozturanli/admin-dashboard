@@ -1,0 +1,10 @@
+main{
+  margin-left: 65px;
+}
+
+@media(max-width:600px){
+  main{
+    margin-left: 0;
+
+  }
+}
