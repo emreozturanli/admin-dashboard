@@ -1,6 +1,6 @@
-#ADMIN DASHBOARD
+# ADMIN DASHBOARD
 
-[See the page](https://admin-dashboard.vercel.app/)
+[See the page](https://admin-dashboard-lime.vercel.app/)
 
 * I designed an admin control panel.
 * I used Firebase Realtime Database feature to store the data and Firebase Authentication feature for authentication operations.
