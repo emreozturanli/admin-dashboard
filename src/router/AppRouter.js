@@ -4,7 +4,6 @@ import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import OutletComponent from '../components/OutletComponent';
 import ForgotPassword from '../pages/ForgotPassword';
-import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => {
   return (
@@ -12,9 +11,7 @@ const AppRouter = () => {
       <OutletComponent />
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/dashboard' element={<PrivateRoute />} >
-          <Route path='' element={<Dashboard />} />
-        </Route>
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>

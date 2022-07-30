@@ -21,8 +21,6 @@ const AuthContextProvider = ({ children }) => {
     const resetInputs = () => {
         setEmail('')
         setPassword('')
-        // setFname('')
-        // setLname('')
     }
   
   //logging in a user with firebase with email and password
@@ -33,7 +31,6 @@ const AuthContextProvider = ({ children }) => {
       toast.success('user succesfully logged in')
       console.log(user)
         navigate("/dashboard")
-        localStorage.setItem('currentUser','true')
         resetInputs();
     } catch (err) {
       toast.error(err.message)

@@ -8,10 +8,12 @@ const Dashboard = () => {
   const {user} = useContext(AuthContext)
 console.log(user)
 
+
+
     return (
     <main>
-      
-        <Grid container sx={{ paddingInline: '2rem' }} spacing={4}>
+        {
+          user  && <Grid container sx={{ paddingInline: '2rem' }} spacing={4}>
           <Grid item xs={12} lg={6} >
             <EmployeeTable sx={{ margin: 'auto' }} />
           </Grid>
@@ -19,6 +21,8 @@ console.log(user)
             <EmployeeDetails />
           </Grid>
         </Grid>
+        }
+        
 
     </main>
   )
