@@ -61,6 +61,7 @@ export default function AddEmployee() {
             id="company"
             select
             color="grey"
+            defaultValue='Ipsum Corporation'
             required
             focused
             type='text'
