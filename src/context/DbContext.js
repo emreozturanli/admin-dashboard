@@ -13,29 +13,29 @@ const DbContextProvider = ({ children }) => {
   const [email, setEmail] = useState('')
   const [company, setCompany] = useState('')
   const [address, setAddress] = useState('')
-  const [dialogOpen,setDialogOpen] = useState(false)
-  
+  const [dialogOpen, setDialogOpen] = useState(false)
 
 
-    const writeToDatabase = (e) => {
-      e.preventDefault()
-      if(name && email && company && email){
-        const employeesRef = ref(db, 'employees');
-        const newEmployeesRef = push(employeesRef)
-        set(newEmployeesRef, {
-          name: name,
-          email: email,
-          company: company,
-          address: address,
-        })
-        setName('');
-        setEmail('');
-        setCompany('');
+
+  const writeToDatabase = (e) => {
+    e.preventDefault()
+    if (name && email && company && email) {
+      const employeesRef = ref(db, 'employees');
+      const newEmployeesRef = push(employeesRef)
+      set(newEmployeesRef, {
+        name: name,
+        email: email,
+        company: company,
+        address: address,
+      })
+      setName('');
+      setEmail('');
+      setCompany('');
       setAddress('');
       setDialogOpen(false)
       toast.success('New Employee Successfully Added!')
     }
-    else{
+    else {
       toast.error('All fields must be filled')
     }
   };
@@ -55,9 +55,10 @@ const DbContextProvider = ({ children }) => {
     })
   }, [])
 
-  const deleteEmployee =  (id) => {
+  const deleteEmployee = (id) => {
     remove(ref(db, 'employees/' + id))
     toast.success('Employee successfully removed')
+    setUpdateInfo({})
   }
 
 
@@ -99,7 +100,7 @@ const DbContextProvider = ({ children }) => {
       editEmployeeInfo,
       companies,
       setCompanies,
-      name, 
+      name,
       setName,
       email,
       setEmail,

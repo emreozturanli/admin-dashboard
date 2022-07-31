@@ -67,7 +67,7 @@ export default function EmployeeTable() {
                     }}
                 />
             </div>
-            <TableContainer sx={{ maxHeight: 440 }}>
+            <TableContainer sx={{ maxHeight: 540 }}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>

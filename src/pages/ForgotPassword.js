@@ -62,8 +62,8 @@ const ForgotPassword = () => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link sx={{cursor:'pointer'}} variant="body2" onClick={()=>navigate('/')}>
+                  {"Back to Login"}
                 </Link>
               </Grid>
             </Grid>

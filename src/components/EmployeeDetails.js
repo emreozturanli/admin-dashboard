@@ -1,4 +1,4 @@
-import { Button, Divider, MenuItem, Paper, TextField, Typography } from "@mui/material"
+import { Box, Button, Divider, MenuItem, Paper, TextField, Typography } from "@mui/material"
 import { useContext } from "react"
 import { DbContext } from "../context/DbContext"
 
@@ -27,11 +27,8 @@ const EmployeeDetails = () => {
                     type='text'
                     required
                     name='name'
-                    value={updateInfo.name}
+                    value={updateInfo.name ? updateInfo.name : ''}
                     onChange={(e) => handleChange(e)}
-                    InputProps={{
-                        style: { width: 'max-width' },
-                      }}
                 />
                 <TextField
                     label="Email"
@@ -41,11 +38,8 @@ const EmployeeDetails = () => {
                     type='email'
                     name="email"
                     required
-                    value={updateInfo.email}
+                    value={updateInfo.email ? updateInfo.email : ''}
                     onChange={(e) => handleChange(e)}
-                    InputProps={{
-                        style: { width: 'max-width' },
-                      }}
                 />
                 <TextField
                     id="company"
@@ -77,12 +71,12 @@ const EmployeeDetails = () => {
                     name="address"
                     type='text'
                     required
-                    value={updateInfo.address}
+                    value={updateInfo.address ? updateInfo.address : ''}
                     onChange={(e) => handleChange(e)}
                 />
+                <Box>
                 <Button variant="contained" color="success"
-                    type="submit"
-                  
+                    type="submit" sx={{marginRight: '1rem'}}
                 >
                     Update
                 </Button>
@@ -92,6 +86,7 @@ const EmployeeDetails = () => {
                 >
                     Delete
                 </Button>
+                </Box>
                 </form>
             <Divider />
             <Typography variant="h4">{updateInfo.company}</Typography>
