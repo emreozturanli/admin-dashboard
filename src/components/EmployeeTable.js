@@ -83,7 +83,7 @@ TablePaginationActions.propTypes = {
 export default function EmployeeTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const { employees, setUpdateInfo, setDialogOpen } = React.useContext(DbContext)
+  const { employees, setUpdateInfo, setDialogOpen,setEditEmployeeOpen } = React.useContext(DbContext)
   const [search, setSearch] = React.useState('')
 
   /*SORT PART */
@@ -156,10 +156,12 @@ export default function EmployeeTable() {
 
   const handleRowClick = (row) => {
     setUpdateInfo({ id: row.id, name: row.name, email: row.email, address: row.address, company: row.company })
+    setEditEmployeeOpen(true)
   }
 
   return (
-    <Paper sx={{ padding: '1rem' }} elevation={24}>
+    <div style={{ padding:'0 2rem'}}>
+    <Paper sx={{ maxWidth: '1200px', margin:'auto', padding: '2rem' }} elevation={24}>
       <Box
         sx={{
           display: 'flex',
@@ -240,12 +242,12 @@ export default function EmployeeTable() {
       <Box sx={{
         display: 'flex',
         justifyContent: 'space-between',
-        // alignItems: { xs: 'center' },
-        flexDirection: { sm: 'row', xs: 'column' }
+        flexDirection: { md: 'row', xs: 'column' }
       }} >
-        <Button onClick={() => setDialogOpen(true)} sx={{ order: {xs : 2, sm : 0}}}>Add New Employee</Button>
+        <Button onClick={() => setDialogOpen(true)} sx={{ order: {xs : 2, md : 0}}}>Add New Employee</Button>
 
         <TablePagination
+          sx={{marginBottom:{ xs: '2rem' }}}
           rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
           count={rows.length}
           rowsPerPage={rowsPerPage}
@@ -263,6 +265,6 @@ export default function EmployeeTable() {
       </Box>
       <AddEmployee />
     </Paper>
-
+    </div>
   );
 }

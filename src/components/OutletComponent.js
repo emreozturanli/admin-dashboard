@@ -16,11 +16,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DeleteIcon from '@mui/icons-material/Delete';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
-import StarRateIcon from '@mui/icons-material/StarRate';
+import GroupIcon from '@mui/icons-material/Group';
+import LockIcon from '@mui/icons-material/Lock';
+import BusinessIcon from '@mui/icons-material/Business';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -148,7 +146,7 @@ export default function OutletComponent() {
           </DrawerHeader>
           <Divider />
           <List>
-            <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=> navigate('/employees')}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -163,9 +161,9 @@ export default function OutletComponent() {
                     justifyContent: 'center',
                   }}
                 >
-                  <InboxIcon />
+                  <GroupIcon />
                 </ListItemIcon>
-                <ListItemText primary={'Inbox'} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={'Employees'} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding sx={{ display: 'block' }}>
@@ -183,9 +181,9 @@ export default function OutletComponent() {
                     justifyContent: 'center',
                   }}
                 >
-                  <StarRateIcon />
+                  <BusinessIcon />
                 </ListItemIcon>
-                <ListItemText primary={'Starred'} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={'Companies'} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding sx={{ display: 'block' }}>
@@ -203,49 +201,9 @@ export default function OutletComponent() {
                     justifyContent: 'center',
                   }}
                 >
-                  <DeleteIcon />
+                  <LockIcon />
                 </ListItemIcon>
-                <ListItemText primary={'Trash'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <DraftsIcon />
-                </ListItemIcon>
-                <ListItemText primary={'Draft'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <ForwardToInboxIcon />
-                </ListItemIcon>
-                <ListItemText primary={'Send email'} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary={'Authorization'} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           </List>

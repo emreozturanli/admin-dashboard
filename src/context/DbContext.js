@@ -14,7 +14,7 @@ const DbContextProvider = ({ children }) => {
   const [company, setCompany] = useState('')
   const [address, setAddress] = useState('')
   const [dialogOpen, setDialogOpen] = useState(false)
-
+  const [editEmployeeOpen,setEditEmployeeOpen] = useState(false)
 
 
   const writeToDatabase = (e) => {
@@ -59,6 +59,7 @@ const DbContextProvider = ({ children }) => {
     remove(ref(db, 'employees/' + id))
     toast.success('Employee successfully removed')
     setUpdateInfo({})
+    setEditEmployeeOpen(false)
   }
 
 
@@ -71,6 +72,7 @@ const DbContextProvider = ({ children }) => {
       company: updateInfo.company
     })
     toast.success('Employee informations successfully updated.')
+    setEditEmployeeOpen(false)
   }
 
   /* COMPANY DB */
@@ -110,7 +112,9 @@ const DbContextProvider = ({ children }) => {
       setCompany,
       writeToDatabase,
       dialogOpen,
-      setDialogOpen
+      setDialogOpen,
+      editEmployeeOpen,
+      setEditEmployeeOpen
     }}>
       {children}
     </DbContext.Provider>
