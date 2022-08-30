@@ -178,7 +178,7 @@ export default function EmployeeTable() {
           placeholder='Search for an employee'
           size='small'
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {setSearch(e.target.value); setPage(0)}}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
